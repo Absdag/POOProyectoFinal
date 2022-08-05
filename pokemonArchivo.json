@@ -1,0 +1,20 @@
+{
+	"id":1,
+	"Pokemon":{
+		"nombre":"Juanito Perez",
+		"tipo1":"fuego",
+		"tipo2":"volador",
+		"ataque":60,
+		"velocidad":50,
+		"defensa":70
+	},
+	"id":2,
+	"Pokemon":{
+		"nombre":"Juanita Gonzales",
+		"tipo1":"planta",
+		"tipo2":"electrico",
+		"ataque":30,
+		"velocidad":80,
+		"defensa":20
+	}
+}
