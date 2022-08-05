@@ -1,20 +1,19 @@
-{
-	"id":1,
-	"Pokemon":{
-		"nombre":"Juanito Perez",
-		"tipo1":"fuego",
-		"tipo2":"volador",
-		"ataque":60,
-		"velocidad":50,
-		"defensa":70
-	},
-	"id":2,
-	"Pokemon":{
-		"nombre":"Juanita Gonzales",
-		"tipo1":"planta",
-		"tipo2":"electrico",
-		"ataque":30,
-		"velocidad":80,
-		"defensa":20
-	}
-}
+[ {
+  "nombre" : "Juanito Perez",
+  "tipo1" : "fuego",
+  "tipo2" : "volador",
+  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
+  "daño" : 60,
+  "velocidad" : 50,
+  "defensa" : 70,
+  "poder" : 60.0
+}, {
+  "nombre" : "Juanita Gonzales",
+  "tipo1" : "agua",
+  "tipo2" : "volador",
+  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
+  "daño" : 25,
+  "velocidad" : 30,
+  "defensa" : 40,
+  "poder" : 31.0
+} ]
