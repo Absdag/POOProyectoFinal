@@ -23,6 +23,7 @@ public class ArchivosPokemon {
 		listaTemp = new Pokemon[15];
 		ataques = new String[4];
 		objectMapper = new ObjectMapper();
+		leerArchivo();
 	}
 	
 	public void leerArchivo() {
