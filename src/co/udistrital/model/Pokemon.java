@@ -28,12 +28,128 @@ public class Pokemon {
 		this.daño = daño;
 		this.velocidad = velocidad;
 		this.defensa = defensa;
+		recalcularPoder();
+	}
+	
+	public void recalcularPoder() {
 		this.poder = (daño+velocidad+defensa)/3;
 	}
 	
-	//TODO Revision de las debilidades
-	public int esDebil(String tipo) {
-		return 0;
+	//Es codigo fuerte el manejo de las debilidades de los pokemon
+	public int esDebil(String tipoDelAtaque) {
+		int debilidadTemporal=0;
+		switch(tipo1) {
+		case "fuego":
+			if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("roca")) {
+				debilidadTemporal++;
+			}
+			else if(tipoDelAtaque.equals("planta")) {
+				debilidadTemporal--;
+			}
+			break;
+		case "agua":
+			if(tipoDelAtaque.equals("electrico")|| tipoDelAtaque.equals("planta")) {
+				debilidadTemporal++;
+			}
+			else if(tipoDelAtaque.equals("fuego")||tipoDelAtaque.equals("roca")) {
+				debilidadTemporal--;
+			}
+			break;
+		case "volador":
+			if(tipoDelAtaque.equals("electrico")|| tipoDelAtaque.equals("roca")) {
+				debilidadTemporal++;
+			}
+			else if(tipoDelAtaque.equals("planta")) {
+				debilidadTemporal--;
+			}
+			break;
+		case "electrico":
+			//No tiene debilidades con los tipos asignados, calculando fortalezas
+			if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("volador")) {
+				debilidadTemporal--;
+			}
+			break;
+		case "planta":
+			if(tipoDelAtaque.equals("fuegoo")|| tipoDelAtaque.equals("volador")) {
+				debilidadTemporal--;
+			}
+			else if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("Roca")) {
+				debilidadTemporal--;
+			}
+			break;
+		case "roca":
+			if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("planta")) {
+				debilidadTemporal++;
+			}
+			else if(tipoDelAtaque.equals("fuego")||tipoDelAtaque.equals("volador")) {
+				debilidadTemporal--;
+			}
+			break;
+		default:
+			break;
+		}
+		if(tipo2!=null) {
+			switch(tipo2) {
+			case "fuego":
+				if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("roca")) {
+					debilidadTemporal++;
+				}
+				else if(tipoDelAtaque.equals("planta")) {
+					debilidadTemporal--;
+				}
+				break;
+			case "agua":
+				if(tipoDelAtaque.equals("electrico")|| tipoDelAtaque.equals("planta")) {
+					debilidadTemporal++;
+				}
+				else if(tipoDelAtaque.equals("fuego")||tipoDelAtaque.equals("roca")) {
+					debilidadTemporal--;
+				}
+				break;
+			case "volador":
+				if(tipoDelAtaque.equals("electrico")|| tipoDelAtaque.equals("roca")) {
+					debilidadTemporal++;
+				}
+				else if(tipoDelAtaque.equals("planta")) {
+					debilidadTemporal--;
+				}
+				break;
+			case "electrico":
+				//No tiene debilidades con los tipos asignados, calculando fortalezas
+				if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("volador")) {
+					debilidadTemporal--;
+				}
+				break;
+			case "planta":
+				if(tipoDelAtaque.equals("fuegoo")|| tipoDelAtaque.equals("volador")) {
+					debilidadTemporal--;
+				}
+				else if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("Roca")) {
+					debilidadTemporal--;
+				}
+				break;
+			case "roca":
+				if(tipoDelAtaque.equals("agua")|| tipoDelAtaque.equals("planta")) {
+					debilidadTemporal++;
+				}
+				else if(tipoDelAtaque.equals("fuego")||tipoDelAtaque.equals("volador")) {
+					debilidadTemporal--;
+				}
+				break;
+			default:
+				break;
+			}
+		}
+		
+		if(debilidadTemporal<0) {
+			return 1;
+		}
+		else if(debilidadTemporal>0) {
+			return 2;
+		}
+		else {
+			return 0;
+		}
 	}
 
 	public String getNombre() {
