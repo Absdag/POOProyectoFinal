@@ -140,7 +140,7 @@ public class Pokemon {
 				break;
 			}
 		}
-		
+		//menor a 0 es que es debil, mayor a 0 es que es fuerte
 		if(debilidadTemporal<0) {
 			return 1;
 		}

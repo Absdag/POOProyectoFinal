@@ -16,12 +16,10 @@ public class ArchivosPokemon {
 	private Pokemon lista[];
 	private Pokemon listaTemp[];
 	private ObjectMapper objectMapper;
-	private String ataques[];
 	
 	public ArchivosPokemon() {
 		lista = new Pokemon[15];
 		listaTemp = new Pokemon[15];
-		ataques = new String[4];
 		objectMapper = new ObjectMapper();
 		leerArchivo();
 	}
@@ -82,13 +80,4 @@ public class ArchivosPokemon {
 		}
 		lista = listaTemp.clone();
 	}
-	
-	public String[] obtenerAtaquesPorTipo(String tipo) {
-		return ataques;
-	}
-	
-	public int obtenerDebilidad() {
-		return 0;
-	}
-	
 }
