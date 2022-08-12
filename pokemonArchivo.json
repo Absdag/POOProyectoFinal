@@ -1,19 +1,19 @@
 [ {
-  "nombre" : "Juanito Perez",
-  "tipo1" : "fuego",
-  "tipo2" : "volador",
-  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
-  "daño" : 60,
-  "velocidad" : 50,
-  "defensa" : 70,
-  "poder" : 60.0
-}, {
   "nombre" : "Juanita Gonzales",
   "tipo1" : "agua",
-  "tipo2" : "volador",
+  "tipo2" : "",
   "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
   "daño" : 25,
   "velocidad" : 30,
   "defensa" : 40,
   "poder" : 31.0
-} ]
+}, {
+  "nombre" : "Pepito perez",
+  "tipo1" : "fuego",
+  "tipo2" : "volador",
+  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
+  "daño" : 50,
+  "velocidad" : 80,
+  "defensa" : 90,
+  "poder" : 73.0
+}, null, null, null, null, null, null, null, null, null, null, null, null, null ]

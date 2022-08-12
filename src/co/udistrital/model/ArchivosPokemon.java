@@ -26,7 +26,7 @@ public class ArchivosPokemon {
 	
 	public void leerArchivo() {
 		try {
-			lista = objectMapper.readerFor(Pokemon[].class).readValue(new File("pokemon.json"));
+			lista = objectMapper.readerFor(Pokemon[].class).readValue(new File("pokemonArchivo.json"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class ArchivosPokemon {
 	
 	public void guardarArchivo() {
 		try {
-			objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("pokemon.json"), lista);
+			objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("pokemonArchivo.json"), lista);
 		} catch (StreamWriteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

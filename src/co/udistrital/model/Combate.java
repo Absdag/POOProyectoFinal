@@ -79,6 +79,8 @@ public class Combate {
 		if(critico) {
 			dano = dano *1.75;
 		}
+		//Escala del daño con el total de poder del pokemon
+		dano = dano *(victima.getPoder()/100);
 		
 		return dano;
 	}
