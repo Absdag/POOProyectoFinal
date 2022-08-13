@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"co.udistrital.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"co.udistrital.controller"},{"l":"co.udistrital.model"},{"l":"co.udistrital.view"}];updateSearchResults();
