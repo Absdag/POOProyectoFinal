@@ -11,7 +11,7 @@ public class Controller implements ActionListener{
 	private ArchivosPokemon inventarioPokemon;
 	private AtaquesPokemon controlAtaques;
 	private Combate manejadorCombate;
-	private VentanaPrincipal ventanaAPP;
+	private VentanaPrincipal ventana;
 	
 	//PARA PRUEBAS
 	private TESTConsola consola;
@@ -20,8 +20,9 @@ public class Controller implements ActionListener{
 		inventarioPokemon = new ArchivosPokemon();
 		controlAtaques = new AtaquesPokemon();
 		manejadorCombate = new Combate();
-		ventanaAPP = new VentanaPrincipal();
+		ventana = new VentanaPrincipal();
 		consola = new TESTConsola();
+		asignarOyentes();
 		iniciarPrograma();
 	}
 	
@@ -37,10 +38,32 @@ public class Controller implements ActionListener{
 	public void iniciarPrograma() {
 		
 	}
+	
+	public void asignarOyentes() {
+		//ActionListener del menu principal
+		ventana.getMenuPrincipal().getBotonInventario().addActionListener(this);
+		ventana.getMenuPrincipal().getBotonCombate().addActionListener(this);
+		ventana.getMenuPrincipal().getBotonSalir().addActionListener(this);
+		
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO LA LOGICA DEL PAQUETE
+		String comando = e.getActionCommand();
 		
+		switch(comando){
+		case "BOTON-INVENTARIO-POKEMON":
+			ventana.getMenuPrincipal().deshabilitarPanel();
+			ventana.getInventario().habilitarPanel();
+			break;
+		case "BOTON-INVENTARIO-COMBATE":
+			ventana.getMenuPrincipal().deshabilitarPanel();
+			ventana.getInventarioCombate().habilitarPanel();
+			break;
+		case "BOTON-SALIR-PROGRAMA":
+			ventana.salirPrograma();
+			break;
+		}
 	}
 }

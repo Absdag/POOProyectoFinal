@@ -9,7 +9,7 @@ package co.udistrital.view;
  */
 public interface ComportamientoPanel {
 	
-	public void inivializarComponentes();
+	public void inicializarComponentes();
 	public void deshabilitarPanel();
 	public void habilitarPanel();
 }

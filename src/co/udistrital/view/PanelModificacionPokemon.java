@@ -5,7 +5,7 @@ import javax.swing.*;
 public class PanelModificacionPokemon extends JPanel implements ComportamientoPanel{
 
 	@Override
-	public void inivializarComponentes() {
+	public void inicializarComponentes() {
 		// TODO Auto-generated method stub
 		
 	}

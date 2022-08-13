@@ -2,12 +2,13 @@ package co.udistrital.view;
 
 public class PanelSeleccionInventario extends PanelSeleccion implements ComportamientoPanel {
 
-	
+	public PanelSeleccionInventario() {
+		
+	}
 	
 	@Override
-	public void inivializarComponentes() {
+	public void inicializarComponentes() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
