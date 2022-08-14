@@ -13,6 +13,7 @@ public class PanelMenuPrincipal extends JPanel implements ComportamientoPanel{
 	public PanelMenuPrincipal () {
 		setLayout(new GridLayout(4 , 1));
 		inicializarComponentes();
+		setBackground(new Color(207,226,243));
 
 	}
 
