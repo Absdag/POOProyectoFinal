@@ -1,46 +1,63 @@
 package co.udistrital.model;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AtaquesPokemon {
 	
 	private String ataques[];
+	private String[] tiposPokemon;
 	
 	public AtaquesPokemon() {
+		tiposPokemon = new String[]{"fuego","agua","volador","electrico","planta","roca"};
 		ataques = new String[4];
 	}
 	
-	public String[] obtenerAtaquesPorTipo(String tipo) {
-		switch (tipo) {
-		case "fuego":
+	public int obtenerValorEnteroAleatorio() {
+		int temp;
+		temp = ThreadLocalRandom.current().nextInt(10,90);
+		return temp;
+	}
+	
+	public String[] obtenerTiposDePokemon(){
+		return tiposPokemon;
+	}
+	
+	public String obtenerTiposDePokemon(int index) {
+		return tiposPokemon[index];
+	}
+	
+	public String[] obtenerAtaquesPorTipo(int index) {
+		switch (index) {
+		case 0:
 			ataques[0]="Lanzallamas";
 			ataques[1]="GiroFuego";
 			ataques[2]="Bomba";
 			ataques[3]="Embestida";
 			break;
-		case "agua":
+		case 1:
 			ataques[0]="Burbuja";
 			ataques[1]="Acua jet";
 			ataques[2]="Hidrobomba";
 			ataques[3]="Embestida";
 			break;
-		case "volador":
+		case 2:
 			ataques[0]="Látigo de aire";
 			ataques[1]="Ráfaga";
 			ataques[2]="Torbellino";
 			ataques[3]="Embestida";
 			break;
-		case "electrico":
+		case 3:
 			ataques[0]="Impactrueno";
 			ataques[1]="Látigo";
 			ataques[2]="Onda Trueno";
 			ataques[3]="Embestida";
 			break;
-		case "planta":
+		case 4:
 			ataques[0]="Hoja afilada";
 			ataques[1]="Tormenta floral";
 			ataques[2]="Latigazo";
 			ataques[3]="Embestida";
 			break;
-		case "roca":
+		case 5:
 			ataques[0]="Lanzarroca";
 			ataques[1]="Placaje";
 			ataques[2]="Terremoto";

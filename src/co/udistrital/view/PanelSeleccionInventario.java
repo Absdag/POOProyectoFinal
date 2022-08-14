@@ -36,7 +36,7 @@ public class PanelSeleccionInventario extends PanelSeleccion implements Comporta
 		botonModificarNombre = new JButton("CAMBIAR NOMBRE");
 		
 		botonNuevoPokemon.setActionCommand("BOTON-NUEVO-POKEMON");
-		botonEliminarPokemon.setActionCommand("BOTON ELIMINAR POKEMON");
+		botonEliminarPokemon.setActionCommand("BOTON-ELIMINAR-POKEMON");
 		botonModificarNombre.setActionCommand("BOTON-CAMBIO-NOMBRE");
 		super.getBotonRegresar().setActionCommand("BOTON-REGRESAR-INVENTARIO");;
 		
@@ -197,7 +197,23 @@ public class PanelSeleccionInventario extends PanelSeleccion implements Comporta
 	public void setBotonEliminarPokemon(JButton botonEliminarPokemon) {
 		this.botonEliminarPokemon = botonEliminarPokemon;
 	}
+
+	public void deshabilitarBotonModificar() {
+		botonModificarNombre.setEnabled(false);
+		botonModificarNombre.setText("<html>NO VALIDO<br> (Muy corto o muy largo)<html>");
+	}
 	
+	public void habilitarBotonModificar() {
+		botonModificarNombre.setEnabled(true);
+		botonModificarNombre.setText("CAMBIAR NOMBRE");
+	}
 	
+	public void habilitarBotonEliminar() {
+		botonEliminarPokemon.setEnabled(true);
+	}
+	
+	public void deshabilitarBotonEliminar() {
+		botonEliminarPokemon.setEnabled(false);
+	}
 
 }

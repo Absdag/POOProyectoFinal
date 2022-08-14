@@ -11,6 +11,7 @@ public class PanelSeleccion extends JPanel {
 	private JButton botonRegresar;
 	private JList listaPokemon;
 	private List<Pokemon> listaTemp;
+	DefaultListModel<Pokemon> listModel;
 	
 	@SuppressWarnings("unchecked")
 	public PanelSeleccion() {
@@ -19,6 +20,7 @@ public class PanelSeleccion extends JPanel {
 		listaPokemon = new JList(new Vector<Pokemon>());
 		listaPokemon.setVisibleRowCount(6);
 		listaPokemon.setFixedCellHeight(80);
+		listModel = new DefaultListModel();
 		
 		listaPokemon.setCellRenderer(new DefaultListCellRenderer() {
 			@Override
@@ -36,13 +38,12 @@ public class PanelSeleccion extends JPanel {
 	}
 	
 	public void actualizarListaPokemon(Pokemon[] lista) {
-		DefaultListModel<Pokemon> listModel = new DefaultListModel<Pokemon>();
-		for(Pokemon poke : lista) {
-			if(!(poke==null)) {
-				listModel.addElement(poke);
+		listModel.clear();
+		for(int i=0;i<15;i++) {
+			if(lista[i]!=null) {
+				listModel.addElement(lista[i]);
 			}
 		}
-		
 		listaPokemon.setModel(listModel);
 	}
 	

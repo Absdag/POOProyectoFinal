@@ -17,8 +17,9 @@ public class ArchivosPokemon {
 	
 	private int largoLista;
 	private Pokemon lista[];
-	private Pokemon listaTemp[];
 	private ObjectMapper objectMapper;
+	
+	private File archivo;
 	
 	/**
 	 * Constructor base de ArchivosPokemon<br>
@@ -28,19 +29,28 @@ public class ArchivosPokemon {
 	public ArchivosPokemon() {
 		
 		lista = new Pokemon[15];
-		listaTemp = new Pokemon[15];
 		objectMapper = new ObjectMapper();
+		archivo = new File("pokemonArchivo.json");
 		leerArchivo();
 	}
 	
 	/**
-	 * Lectura del archivo, encargado de leer el .JSON que se manejara en el programa<br>
+	 * Lectura del archivo, encargado de leer el .JSON que se manejara en el programa, en caso de no existir, creara uno<br>
 	 * <b>Pre</b> N/A<br>
 	 * <b>Post</b> Leido el pokemonArchivo.json, y de no existir, creada la base del mismo
 	 */
 	public void leerArchivo() {
 		try {
-			lista = objectMapper.readerFor(Pokemon[].class).readValue(new File("pokemonArchivo.json"));
+			if(archivo.createNewFile()) {
+				for(int i=0;i<15;i++) {
+					lista[i]=null;
+				}
+				guardarArchivo();
+			}else {
+				if(!(archivo.length()==0)) {
+					lista = objectMapper.readerFor(Pokemon[].class).readValue(archivo);
+				}
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +79,7 @@ public class ArchivosPokemon {
 	 */
 	public void guardarArchivo() {
 		try {
-			objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("pokemonArchivo.json"), lista);
+			objectMapper.writerWithDefaultPrettyPrinter().writeValue(archivo, lista);
 		} catch (StreamWriteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,13 +98,27 @@ public class ArchivosPokemon {
 	 * @param id Numero del pokemon en la lista, id!=null id &#x3C; 15
 	 */
 	public void eliminarPokemonArchivo(int id) {
-		if(id>0){
-			System.arraycopy(lista, 0, listaTemp, 0, id);
+		Pokemon[] listTemp= new Pokemon[15];
+		for(int i=0,k=0;i<lista.length;i++) {
+			if(i==id) {
+				continue;
+			}
+			listTemp[k++] = lista[i];
 		}
-		if(listaTemp.length>1) {
-			System.arraycopy(lista, id+1, listaTemp, id, listaTemp.length-1);
+		for(int i=0;i<lista.length;i++) {
+			lista[i]=listTemp[i];
 		}
-		lista = listaTemp.clone();
+		guardarArchivo();
+	}
+	
+	public void addPokemonArchivo(Pokemon poke) {
+		for(int i=0;i<15;i++) {
+			if(lista[i]==null) {
+				lista[i] = poke;
+				break;
+			}
+		}
+		guardarArchivo();
 	}
 	
 	public int cantidadPokemonEnArchivo() {

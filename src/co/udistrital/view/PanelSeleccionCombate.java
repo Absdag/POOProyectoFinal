@@ -37,7 +37,7 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 		botonRetirarCombatePoke.setActionCommand("BOTON-RETIRAR-COMBATE");
 		
 		botonSeleccionarPokemon = new JButton("SELECCIONAR");
-		botonSeleccionarPokemon.setActionCommand("SELECCIONAR");
+		botonSeleccionarPokemon.setActionCommand("SELECCIONAR-PARA-COMBATE");
 		super.getBotonRegresar().setActionCommand("BOTON-REGRESAR-MENU-COMBATE");
 		
 		GridBagConstraints limites = new GridBagConstraints();

@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.*;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends JFrame {
 	
@@ -51,6 +52,14 @@ public class VentanaPrincipal extends JFrame {
 		
 		interfazCombate = new PanelCombatePokemon();
 		
+	}
+	
+	public void mostrarMensajeError(String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public int confirmarTarea(String mensaje) {
+		return JOptionPane.showConfirmDialog(null, mensaje, "Confirmar", JOptionPane.YES_NO_OPTION);
 	}
 	
 	public void habilitarMenuPrincipal() {

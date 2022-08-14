@@ -1,19 +1,37 @@
 [ {
-  "nombre" : "Juanita Gonzales",
-  "tipo1" : "agua",
-  "tipo2" : "",
-  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
-  "daño" : 25,
-  "velocidad" : 30,
-  "defensa" : 40,
-  "poder" : 31.0
+  "nombre" : "Pepito juarez",
+  "tipo1" : "volador",
+  "tipo2" : "agua",
+  "ataques" : [ "Látigo de aire", "Látigo de aire", "Burbuja", "Burbuja" ],
+  "daño" : 27,
+  "velocidad" : 87,
+  "defensa" : 80,
+  "poder" : 64.0
 }, {
-  "nombre" : "Pepito perez",
-  "tipo1" : "fuego",
+  "nombre" : "JuanSaclemente",
+  "tipo1" : "planta",
   "tipo2" : "volador",
-  "ataques" : [ "ataque1", "ataque2", "ataque3", "ataque4" ],
-  "daño" : 50,
-  "velocidad" : 80,
-  "defensa" : 90,
-  "poder" : 73.0
-}, null, null, null, null, null, null, null, null, null, null, null, null, null ]
+  "ataques" : [ "Hoja afilada", "Hoja afilada", "Látigo de aire", "Látigo de aire" ],
+  "daño" : 55,
+  "velocidad" : 61,
+  "defensa" : 52,
+  "poder" : 56.0
+}, {
+  "nombre" : "asdfasdfasdf",
+  "tipo1" : "volador",
+  "tipo2" : "fuego",
+  "ataques" : [ "Látigo de aire", "Látigo de aire", "Lanzallamas", "Lanzallamas" ],
+  "daño" : 70,
+  "velocidad" : 72,
+  "defensa" : 27,
+  "poder" : 56.0
+}, {
+  "nombre" : "jkladbghjiasd f",
+  "tipo1" : "roca",
+  "tipo2" : "volador",
+  "ataques" : [ "Lanzarroca", "Lanzarroca", "Látigo de aire", "Látigo de aire" ],
+  "daño" : 30,
+  "velocidad" : 53,
+  "defensa" : 65,
+  "poder" : 49.0
+}, null, null, null, null, null, null, null, null, null, null, null ]
