@@ -3,6 +3,7 @@ package co.udistrital.view;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import co.udistrital.model.Pokemon;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -31,6 +32,32 @@ public class PanelCombatePokemon extends JPanel implements ComportamientoPanel{
 		inicializarComponentes();
 	}
 	
+	public void actualizarAtaquesUsuario(Pokemon poke) {
+		ataque1.setText(poke.getAtaques()[0]);
+		ataque2.setText(poke.getAtaques()[1]);
+		ataque3.setText(poke.getAtaques()[2]);
+		ataque4.setText(poke.getAtaques()[3]);
+	}
+	public void updateDatosUsuario(String nombre,double vida) {
+		datosUsuario.setText(String.format("<html> USUARIO: %16s <br>VIDA: %.2f",nombre,vida ));
+	}
+	
+	public void updateDatosComputadora(String nombre,double vida) {
+		datosComputadora.setText(String.format("<html> RIVAL: %16s <br>VIDA: %.2f",nombre,vida ));
+	}
+	
+	public void actualizarRegistroCombate(String nombreVictimario,String nombreAtaque, double dano,String nombreVictima,boolean critico, boolean muerte) {
+		if(critico) {
+			historicoCombate.setText(historicoCombate.getText()+"<br>"+String.format("%16s Ataca con %10s a %16s -CON CRITICO- haciendo %.2f de daño",nombreVictimario,nombreAtaque,nombreVictima,dano));
+		}else {
+			historicoCombate.setText(historicoCombate.getText()+"<br>"+String.format("%16s Ataca con %10s a %16s haciendo %.2f de daño",nombreVictimario,nombreAtaque,nombreVictima,dano));
+		}
+		
+		if(muerte) {
+			historicoCombate.setText(historicoCombate.getText()+"<br>"+String.format("<u><b>%16s HA MATADO A %16s</b></u>", nombreVictimario,nombreVictima));
+		}
+	}
+	
 	@Override
 	public void inicializarComponentes() {
 		imagenUsuario = new PanelImagen();
@@ -48,7 +75,7 @@ public class PanelCombatePokemon extends JPanel implements ComportamientoPanel{
 		datosComputadora = new JLabel("<html>RIVAL:<br>VIDA:<html>");
 		datosUsuario = new JLabel("<html>USUARIO:<br>VIDA:<html>");
 		infoTurno = new JLabel("TURNO DE: ");
-		historicoCombate = new JLabel("HISTORICO COMBATE");
+		historicoCombate = new JLabel("<html>HISTORICO COMBATE:<br>");
 		
 		botonRendirse = new JButton("RENDIRSE");
 		botonRendirse.setActionCommand("BOTON-RENDIRSE-COMBATE");
@@ -91,7 +118,9 @@ public class PanelCombatePokemon extends JPanel implements ComportamientoPanel{
 		limites.gridheight=2;
 		limites.gridy=0;
 		limites.gridx=3;
-		add(historicoCombate,limites);
+		JScrollPane dataCombate = new JScrollPane(historicoCombate);
+		dataCombate.setPreferredSize(new Dimension(2,2));
+		add(dataCombate,limites);
 		
 		//Botones de ataque
 		limites.gridheight=1;

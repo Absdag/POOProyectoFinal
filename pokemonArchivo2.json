@@ -8,6 +8,15 @@
   "defensa" : 52,
   "poder" : 56.0
 }, {
+  "nombre" : "asdfasdfasdf",
+  "tipo1" : "volador",
+  "tipo2" : "fuego",
+  "ataques" : [ "Látigo de aire", "Látigo de aire", "Lanzallamas", "Lanzallamas" ],
+  "daño" : 70,
+  "velocidad" : 72,
+  "defensa" : 27,
+  "poder" : 56.333333333333336
+}, {
   "nombre" : "Juanita la linda",
   "tipo1" : "planta",
   "tipo2" : "",
@@ -79,13 +88,4 @@
   "velocidad" : 55,
   "defensa" : 49,
   "poder" : 39.666666666666664
-}, {
-  "nombre" : "Petrito  ",
-  "tipo1" : "electrico",
-  "tipo2" : "agua",
-  "ataques" : [ "Impactrueno", "Látigo", "Burbuja", "Burbuja" ],
-  "daño" : 44,
-  "velocidad" : 18,
-  "defensa" : 63,
-  "poder" : 41.666666666666664
 }, null, null, null, null, null ]

@@ -3,12 +3,16 @@ package co.udistrital.view;
 import javax.swing.*;
 import co.udistrital.model.Pokemon;
 import java.awt.*;
+import java.util.Vector;
 
 public class PanelSeleccionCombate extends PanelSeleccion implements ComportamientoPanel{
 	
 	private JLabel infoSeleccionado;
-	private JList listaSeleccionados;
 	private JLabel actualSeleccionado;
+	
+	private Pokemon[] listaPokemonSeleccionados;
+	
+	private JLabel infoSeleccionados;
 	
 	private int[] idSeleccionados;
 	
@@ -25,9 +29,11 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 	
 	@Override
 	public void inicializarComponentes() {
+		listaPokemonSeleccionados = new Pokemon[5];
 		idSeleccionados= new int[5];
 		infoSeleccionado = new JLabel("<html>SELECCIONADO ACTUALMENTE<br>NOMBRE:<html>");
-		listaSeleccionados = new JList();
+		infoSeleccionados = new JLabel();
+		actualizarInfoSeleccionados();
 		
 		botonInicioCombate = new JButton("INICIAR COMBATE");
 		botonInicioCombate.setBackground(new Color(142,124,195));
@@ -61,11 +67,11 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 		limites.gridheight=1;
 		add(infoSeleccionado,limites);
 		
-		//Lista
+		//Info de seleccionados
 		limites.weighty=1;
 		limites.gridheight=2;
 		limites.gridy=1;
-		add(listaSeleccionados,limites);
+		add(infoSeleccionados,limites);
 		
 		//inicio combate
 		limites.gridy=4;
@@ -86,11 +92,61 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 		add(botonSeleccionarPokemon,limites);
 	}
 	
+	public void actualizarInfoSeleccionados() {
+		infoSeleccionados.setText("<html>POKEMON SELECCIONADOS<br>1. ");
+		if(listaPokemonSeleccionados[0]!=null) {
+			infoSeleccionados.setText(infoSeleccionados.getText()+listaPokemonSeleccionados[0].getNombre());
+		}
+		infoSeleccionados.setText(infoSeleccionados.getText()+"<br>2.");
+		if(listaPokemonSeleccionados[1]!=null) {
+			infoSeleccionados.setText(infoSeleccionados.getText()+listaPokemonSeleccionados[1].getNombre());
+		}
+		
+		infoSeleccionados.setText(infoSeleccionados.getText()+"<br>3.");
+		if(listaPokemonSeleccionados[2]!=null) {
+			infoSeleccionados.setText(infoSeleccionados.getText()+listaPokemonSeleccionados[2].getNombre());
+		}
+		
+		infoSeleccionados.setText(infoSeleccionados.getText()+"<br>4.");
+		if(listaPokemonSeleccionados[3]!=null) {
+			infoSeleccionados.setText(infoSeleccionados.getText()+listaPokemonSeleccionados[3].getNombre());
+		}
+		
+		infoSeleccionados.setText(infoSeleccionados.getText()+"<br>5.");
+		if(listaPokemonSeleccionados[4]!=null) {
+			infoSeleccionados.setText(infoSeleccionados.getText()+listaPokemonSeleccionados[4].getNombre());
+		}
+	}
+	
 	public void actualizarDatosSeleccionado(Pokemon poke) {
 		String temp = "<html>SELECCIONADO ACTUALMENTE<br>NOMBRE: <html>"+poke.getNombre();
 		infoSeleccionado.setText(temp);
 	}
+	
+	public void deshabilitarBotonRetirar() {
+		botonRetirarCombatePoke.setEnabled(false);
+	}
+	
+	public void habilitarBotonRetirar() {
+		botonRetirarCombatePoke.setEnabled(true);
+	}
+	
+	public void habilitarBotonSeleccion() {
+		botonSeleccionarPokemon.setEnabled(true);
+	}
 
+	public void deshabilitarBotonSeleccion() {
+		botonSeleccionarPokemon.setEnabled(false);
+	}
+	
+	public void habilitarBotonInicioCombate() {
+		botonInicioCombate.setEnabled(true);
+	}
+	
+	public void deshabilitarBotonInicioCombate() {
+		botonInicioCombate.setEnabled(false);
+	}
+	
 	@Override
 	public void deshabilitarPanel() {
 		setVisible(false);
@@ -114,21 +170,6 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 	public void setInfoSeleccionado(JLabel infoSeleccionado) {
 		this.infoSeleccionado = infoSeleccionado;
 	}
-
-	/**
-	 * @return the listaSeleccionados
-	 */
-	public JList getListaSeleccionados() {
-		return listaSeleccionados;
-	}
-
-	/**
-	 * @param listaSeleccionados the listaSeleccionados to set
-	 */
-	public void setListaSeleccionados(JList listaSeleccionados) {
-		this.listaSeleccionados = listaSeleccionados;
-	}
-
 	/**
 	 * @return the actualSeleccionado
 	 */
@@ -199,5 +240,37 @@ public class PanelSeleccionCombate extends PanelSeleccion implements Comportamie
 		this.botonSeleccionarPokemon = botonSeleccionarPokemon;
 	}
 
+	/**
+	 * Manages the getter of listaPokemonSeleccionados
+	 * @return the listaPokemonSeleccionados
+	 */
+	public Pokemon[] getListaPokemonSeleccionados() {
+		return listaPokemonSeleccionados;
+	}
+
+	/**
+	 * @param listaPokemonSeleccionados the listaPokemonSeleccionados to set
+	 */
+	public void setListaPokemonSeleccionados(Pokemon[] listaPokemonSeleccionados) {
+		this.listaPokemonSeleccionados = listaPokemonSeleccionados;
+		actualizarInfoSeleccionados();
+	}
+
+	/**
+	 * Manages the getter of infoSeleccionados
+	 * @return the infoSeleccionados
+	 */
+	public JLabel getInfoSeleccionados() {
+		return infoSeleccionados;
+	}
+
+	/**
+	 * @param infoSeleccionados the infoSeleccionados to set
+	 */
+	public void setInfoSeleccionados(JLabel infoSeleccionados) {
+		this.infoSeleccionados = infoSeleccionados;
+	}
+
+	
 	
 }

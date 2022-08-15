@@ -11,7 +11,7 @@ public class PanelSeleccion extends JPanel {
 	private JButton botonRegresar;
 	private JList listaPokemon;
 	private List<Pokemon> listaTemp;
-	DefaultListModel<Pokemon> listModel;
+	private DefaultListModel<Pokemon> listModel;
 	
 	@SuppressWarnings("unchecked")
 	public PanelSeleccion() {
@@ -28,7 +28,7 @@ public class PanelSeleccion extends JPanel {
                 Component renderer = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (renderer instanceof JLabel && value instanceof Pokemon) {
                     // Here value will be of the Type 'CD'
-                	String temp = String.format("%20s - %8s - %8s",(((Pokemon) value).getNombre()),((Pokemon) value).getTipo1(),((Pokemon) value).getTipo2());
+                	String temp = String.format("NOMBRE:%20s - %8s - %8s PODER: %.2f",(((Pokemon) value).getNombre()),((Pokemon) value).getTipo1(),((Pokemon) value).getTipo2(),((Pokemon)value).getPoder());
                 	((JLabel) renderer).setText(temp);
                 }
                 return renderer;

@@ -71,7 +71,7 @@ public class AtaquesPokemon {
 	
 	public int obtenerDanoDelAtaque(String ataque) {
 		int temp=0;
-		if(ataque.equals("embestida")) {
+		if(ataque.equals("Embestida")) {
 			temp = 15;
 		}
 		else {
@@ -82,7 +82,7 @@ public class AtaquesPokemon {
 	
 	public String obtenerTipoDelAtaque(String ataque) {
 		String temp="";
-		if(ataque.equals("embestida")) {
+		if(ataque.equals("Embestida")) {
 			temp = "normal";
 		}
 		else if(ataque.equals("Lanzallamas")||ataque.equals("GiroFuego")||ataque.equals("Bomba")){

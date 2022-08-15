@@ -55,9 +55,18 @@ public class ArchivosPokemon {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		largoLista = lista.length;
+		actualizarLargoListaReal();
 	}
 	
+	public void actualizarLargoListaReal() {
+		int temp=0;
+		for(int i=0;i<15;i++) {
+			if(lista[i]!=null) {
+				temp++;
+			}
+		}
+		largoLista = temp;
+	}
 	
 	//Guarda el archivo en formato JSON y una forma legible, el guardado es estandar como:
 //	{
@@ -74,7 +83,7 @@ public class ArchivosPokemon {
 	
 	/**
 	 * Maneja el guardado del archivo "pokemonArchivo.json"<br>
-	 * <b>Pre</b> Existencia del archivo<br>
+	 * <b>Pre</b> N/A<br>
 	 * <b>Post</b> Modificacion del archivo con los datos del programa<br>
 	 */
 	public void guardarArchivo() {
@@ -103,12 +112,14 @@ public class ArchivosPokemon {
 			if(i==id) {
 				continue;
 			}
-			listTemp[k++] = lista[i];
+			listTemp[k] = lista[i];
+			k++;
 		}
 		for(int i=0;i<lista.length;i++) {
 			lista[i]=listTemp[i];
 		}
 		guardarArchivo();
+		actualizarLargoListaReal();
 	}
 	
 	public void addPokemonArchivo(Pokemon poke) {
@@ -119,6 +130,7 @@ public class ArchivosPokemon {
 			}
 		}
 		guardarArchivo();
+		actualizarLargoListaReal();
 	}
 	
 	public int cantidadPokemonEnArchivo() {
@@ -128,6 +140,22 @@ public class ArchivosPokemon {
 	public Pokemon[] obtenerListaPokemon() {
 		return lista;
 	}
+
+	/**
+	 * Manages the getter of largoLista
+	 * @return the largoLista
+	 */
+	public int getLargoLista() {
+		return largoLista;
+	}
+
+	/**
+	 * @param largoLista the largoLista to set
+	 */
+	public void setLargoLista(int largoLista) {
+		this.largoLista = largoLista;
+	}
+	
 	
 
 }

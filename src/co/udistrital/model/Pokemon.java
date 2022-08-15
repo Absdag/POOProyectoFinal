@@ -54,7 +54,7 @@ public class Pokemon {
 	 * Este metodo se encarga de tomar los valores determinados en daño, velocidad y defensa para recalcular el poder, en caso de que se haya alterado en el archivo
 	 */
 	public void recalcularPoder() {
-		this.poder = (daño+velocidad+defensa)/3;
+		this.poder =(double) (daño+velocidad+defensa)/3;
 	}
 	
 	/**
